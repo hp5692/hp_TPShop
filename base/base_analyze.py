@@ -3,13 +3,15 @@ import os
 import yaml
 
 
-def analyze_with_file(file_name, case_name):
+def analyze_file(file_name, key):
 
-    with open("." + os.sep + "data" + os.sep + file_name + ".yml", "r", encoding='utf-8') as f:
-        res = yaml.load(f)[case_name]
+    with open(".%sdata%s%s" % (os.sep, os.sep, file_name), "r") as f:
+        case_data = yaml.load(f)[key]
 
-        temp_list = list()
-        for values in res.values():
-            temp_list.append(values)
+        data_list = list()
+        for i in case_data.values():
+            data_list.append(i)
 
-        return temp_list
+        return data_list
+
+

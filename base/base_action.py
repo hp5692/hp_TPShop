@@ -24,8 +24,5 @@ class BaseAction:
     def input(self, feature, text):
         self.find_element(feature).send_keys(text)
 
-    def text(self,feature):
+    def get_text(self, feature):
         return self.find_element(feature).text
-
-    def last_element_text(self, feature):
-        return self.find_elements(feature)[-1].text
